@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./Video.css";
 import VideoFooter from "./VideoFooter";
 import VideoSideBar from "./VideoSideBar";
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 
 function Video({ url, channel, description, song, likes, messages, shares }) {
   const [playing, setPlaying] = useState(false);
@@ -19,9 +20,13 @@ function Video({ url, channel, description, song, likes, messages, shares }) {
 
   return (
     <div className="video">
+      <div className="playBtn">
+        <PlayCircleFilledIcon fontSize="large" />
+      </div>
       <video
         className="video__player"
         loop
+        autoPlay=""
         onClick={onVideoPress}
         ref={videoRef}
         src={url}></video>
